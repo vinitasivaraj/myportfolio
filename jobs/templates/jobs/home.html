@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Vinitha Sivaraj</title>
+
+    <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+
+  <body>
+
+   
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Vinitha Sivaraj</h1>
+          <p class="lead text-muted">Being a passionate developer,to pursue a dynamic and challenging carrer in an organization , with 3.7 years of experience Processing a good track of records over effective skills and time management.Seeking a great opportunity to integrate my knowledge and enhance my skill along with the upliftment of the organisation.</p>
+          <p>
+            <a href="mailto:vinitasivaraj@outlook.com" class="btn btn-primary my-2">To contact <menu type="toolbar"></menu></a>
+            
+          </p>
+          <img src='{% static "profile.jpeg" %}' height="300"></img>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+                {%for job in jobs.all%}
+         
+            <div class="col-md-4">
+                <a href="{% url 'detail' job.id %}">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ job.Image.url }}" height="200" width="50">
+                <div class="card-body">
+                    <p class="card-text">{{ job.Summary }}</p>
+                  </div>
+              </div>
+              </a>
+            </div>
+          
+           {% endfor %}
+        </div>
+        </div>
+      </div>
+
+    </main>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script scr="{% static 'js\bootstrap.min.js' %}" ></script>
+<script src="{% static 'jquery-3.3.1.min.js' %}" ></script>
+
+  </body>
+</html>
